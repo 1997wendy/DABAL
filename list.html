@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url("grid_original.png");
+            background-size: 100%;
+            background-color: #cccccc;
+        }
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        img { 
+            position: absolute;
+            left: 43em;
+            top: 3%;
+            width: 2cm;
+            height: 2cm;
+        }
+        .title {
+            position: relative;
+            left: 17.8em;
+            padding-top: 1em;
+            width: 50%;
+            font-family: 'Jua', sans-serif;
+            font-size: 40px;
+        }
+        .navigator {
+            position: absolute;
+            float: right;
+            left: calc(100% - 3.5em);
+            background-image: url("ui_panel.png");
+            height: 100%;
+            width: 3.5em;
+        }
+        .navi_icon {
+            position: absolute;
+            left: calc(100% - 3em);
+            top: 0.7em;
+            width: 2.5em;
+            height: 2.5em;
+            }
+        #link {
+            top: 4em;
+        }
+        .top{
+            width: calc(100% - 3.5em);
+            height: 7em;
+            float: right;
+        }
+        /* .title {
+            width: 5cm;
+        } */
+        #word_logo {
+            position: absolute;
+            top: 2em;
+            left: 47em;
+            width: 9%;
+            height: 9%
+        }
+        .clearfix {
+            clear:both;
+        }
+        .search {
+            width: 100%;
+            position: relative;
+            display: flex;
+        }
+        .searchTerm {
+            width: 100%;
+            border: 3px solid pink;
+            border-right: none;
+            padding: 5px;
+            height: 22px; 
+            border-radius: 5px 0 0 5px;
+        }
+        .searchButton {
+            width: 53px;
+            height: 38px;
+            border: 1px solid pink;
+            background: pink;
+            border-radius: 0 5px 5px 0;
+        }
+        .wrap {
+            width:20%;
+            position: relative;
+            top: 2.2em;
+            left: 52%;
+            transform: translate(-50%, -50%);
+        }
+        #cart {
+            position: absolute; 
+            top: 17%;
+            left: 63%;
+            width: 1cm;
+            height: 1cm;
+        }
+        .search_domain {
+            height: 2cm;
+        }
+        .flower_list {
+            height: 15cm;
+        }
+        .flower {
+            width: 4.5cm;
+            height: 4.5cm;
+        }
+        #first {
+            position: relative;
+            left: 15em;
+        }
+        #second {
+            position: relative; 
+            left: 18em;
+        }
+        #third {
+            position: relative; 
+            left: 21em;
+        }
+        #fourth {
+            position: relative; 
+            left: 24em;
+        }
+        #fifth {
+            position: relative; 
+            left: 27em;
+        }
+        #sixth {
+            position: absolute;
+            top: 28em;
+            left: 15em;
+        }
+        #seventh {
+            position: absolute;
+            top: 28em;
+            left: 29em;
+        }
+        #eighth {
+            position: absolute;
+            top: 28em;
+            left: calc(29em +14em);
+        }
+        #nineth {
+            position: absolute;
+            top: 28em;
+            left: calc(29em + 14em + 14em);
+        }
+        #tenth {
+            position: absolute;
+            top: 28em;
+            left: calc(29em + 14em + 14em + 14em);
+        }
+        .text {
+            font-family: 'Jua', sans-serif;
+            text-align: center;
+        }
+        #one {
+            position: absolute;
+            left: 16.3em;
+        }
+        #two {
+            position: absolute;
+            left: 32.5em;
+        }
+        #three {
+            position: absolute;
+            left: 45.5em;
+        }
+        #four {
+            position: absolute;
+            left: 60.3em;
+        }
+        #five {
+            position: absolute;
+            left: 70.5em;
+        }
+        #six {
+            position: absolute;
+            top: 38.5em;
+            left: 16.3em;
+        }
+        #seven {
+            position: absolute;
+            top: 38.5em;
+            left: 32.5em;
+        }
+        #eight {
+            position: absolute;
+            top: 38.5em;
+            left: 45.5em;
+        }
+        #nine {
+            position: absolute;
+            top: 38.5em;
+            left: 60.5em;
+        }        
+        #ten {
+            position: absolute;
+            top: 38.5em;
+            left: 70.5em;
+        }
+        /* .container {
+            position: relative;
+            width: 10cm;
+            height: 1cm;
+        }
+        .flower {
+            opacity: 1;
+            transition: .5s ease; 
+            backface-visibility: hidden; 
+        } */
+        /* .m1 {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .m2 {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .m3 {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .m4 {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .m5 {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .m6 {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .m6 {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .m7 {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .m8 {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .m9 {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .m10 {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .flower_list:hover .flower {
+            opacity: 0.3;
+        }
+        .flower_list:hover .m1 {
+            opacity: 1;
+        }
+        .flower_list:hover .m2 {
+            opacity: 1;
+        }
+        .flower_list:hover .m3 {
+            opacity: 1;
+        }
+        .flower_list:hover .m4 {
+            opacity: 1;
+        }
+        .flower_list:hover .m5 {
+            opacity: 1;
+        }
+        .flower_list:hover .m6 {
+            opacity: 1;
+        }
+        .flower_list:hover .m7 {
+            opacity: 1;
+        }
+        .flower_list:hover .m8 {
+            opacity: 1;
+        }
+        .flower_list:hover .m9 {
+            opacity: 1;
+        }
+        .flower_list:hover .m10 {
+            opacity: 1;
+        }
+        .text {
+            color: black;
+            font-size: 16px;
+            padding: 16px 32px;
+        } */
+        #backspace {
+            position: absolute;
+            left: 7cm;
+            top: 1cm;
+            width:2cm;
+            height:1cm;
+        }
+        #logo_navi {
+            position: absolute;
+            top: 7.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <img src="logo2.png" alt="logo">
+        <img src="word logo1.png" alt="word logo" id="word_logo">
+        <!-- <h1 class="title">DABAL</h1> -->
+    </div>
+    <div class="navigator">
+        <a href="https://map.naver.com/v5/?c=14139193.6935029,4517752.1016367,15,0,0,0,dh"><img src="map1.png" alt="map" class="navi_icon" id="map"></a>
+        <a href="http://yiflower.co.kr/?n_media=27758&n_query=%EC%98%A8%EB%9D%BC%EC%9D%B8%EA%BD%83%EC%A7%91&n_rank=15&n_ad_group=grp-m001-01-000002043351472&n_ad=nad-m001-01-000002043351472&n_keyword_id=nkw-m001-01-000002043351740&n_keyword=%EC%98%A8%EB%9D%BC%EC%9D%B8%EA%BD%83%EC%A7%91&n_campaign_type=1&NaPm=ct%3Dkagtomls%7Cci%3D0zC00036vansqxtD1f0V%7Ctr%3Dsa%7Chk%3Da82c17ab3e63fc45608e0d051482b19caa04f6f5"><img src="link1.png" alt="link to online flower shop" class="navi_icon" id="link"></a>
+        <a href="file:///C:/Users/wendy/Desktop/%EC%9B%B9%ED%94%84%EA%B0%9C%20HTML,%20CSS/homepage.html"><img src="logo3.png" alt="logo" class="navi_icon" id="logo_navi"></a>
+    </div>
+    <div class="clearfix"></div>
+    <div class="search_domain">
+        <div class="wrap">
+            <div class="search">
+            <input type="text" class="searchTerm" placeholder="키워드를 검색하세요" style="font-family: 'Jua', sans-serif;">
+            <button type="submit" class="searchButton"></button>
+            </div>
+        </div>
+        <img src="cart4.png" alt="cart" id="cart">
+    </div>
+    <div class="flower_list">
+        <img src="5_oenothera.png" alt="oenothera" class="flower" id="first">
+        <div id="one" class="text">
+            <p>달맞이</p>
+            <p>기다림 / 소원 / 인내</p>
+        </div>
+        <!-- <div class="container">
+            <div class="m1">
+                <div class="text">
+                    <p>달맞이<br/>기다림 / 소원/ 인내</div>
+            </div>
+        </div> -->
+        <img src="8_lilium.png" alt="lilium" class="flower" id="second">
+        <div id="two" class="text">
+            <p>백합</p>
+            <p>순결 / 순수</p>
+        </div>
+        <!-- <div class="container">
+            <div class="m2">
+                <div class="text">백합<br/>순결 / 순수</div>
+            </div>
+        </div> -->
+        <img src="9_saffron.png" alt="saffron" class="flower" id="third">
+        <div id="three" class="text">
+            <p>사프란</p>
+            <p>후회없는 청춘</p>
+        </div>
+        <!-- <div class="container"> 
+            <div class="m3">
+                <div class="text">사프란<br/>후회없는 청춘</div>
+            </div>
+        </div> -->
+        <img src="12_anemone.png" alt="anemone" class="flower" id="fourth">
+        <div id="four" class="text">
+            <p>아네모네</p>
+            <p>진심 / 이별</p>
+        </div>
+        <!-- <div class="container">
+            <div class="m4">
+                <div class="text">아네모네<br/>진심 / 이별</div>
+            </div>
+        </div> -->
+        <img src="17_Clematis.png" alt="clematis" class="flower" id="fifth">
+        <div id="five" class="text">
+            <p>클레마티스</p>
+            <p>당신의 마음은 진실로 아름답다</p>
+        </div>
+        <!-- <div class="container">
+            <div class="m5">
+                <div class="text">클레마티스<br/>당신의 마음은 진실로 아름답다</div>
+            </div>
+        </div> -->
+        <img src="18_freesia.png" alt="freesia" class="flower" id="sixth">
+        <div id="six" class="text">
+            <p>프리지아</p>
+            <p>시작을 응원</p>
+        </div>
+        <!-- <div class="container">
+            <div class="m6">
+                <div class="text">프리지아<br/>시작을 응원</div>
+            </div>
+        </div> -->
+        <img src="19_iris.png" alt="iris" class="flower" id=seventh>
+        <div id="seven" class="text">
+            <p>아이리스</p>
+            <p>기쁜 소식</p>
+        </div>
+        <!-- <div class="container">
+            <div class="m7">
+                <div class="text">아이리스<br/>기쁜 소식</div>
+            </div>
+        </div> -->
+        <img src="28_ranunculus.png" alt="ranunculus" class="flower" id="eighth">
+        <div id="eight" class="text">
+            <p>라넌큘러스</p>
+            <p>매력 / 매혹</p>
+        </div>
+        <!-- <div class="container">
+            <div class="m8">
+                <div class="text">라넌큘러스<br/>매력 / 매혹</div>
+            </div>
+        </div> -->
+        <img src="33_sweetpea.png" alt="sweetpea" class="flower" id="nineth">
+        <div id="nine" class="text">
+            <p>스위트피</p>
+            <p>즐거움 / 추억</p>
+        </div>
+        <!-- <div class="container">
+            <div class="m9">
+                <div class="text">스위트피<br/>추억 / 즐거움</div>
+            </div>
+        </div> -->
+        <img src="37_rose(blackpink).png" alt="rose" class="flower" id="tenth">
+        <div id="ten" class="text">
+            <p>장미</p>
+            <p>사랑 / 순수 / 기쁨 / 불가능</p>
+        </div>
+        <!-- <div class="container">
+            <div class="m10">
+                <div class="text">장미<br/>사랑 / 순수 / 기쁨 / 불가능</div>
+            </div>
+        </div> -->
+    </div>
+
+    <a href="file:///C:/Users/wendy/Desktop/%EC%9B%B9%ED%94%84%EA%B0%9C%20HTML,%20CSS/search.html"><img src="arrow1.png" alt="backspace" id="backspace"></a>
+
+</body>
+</html>
